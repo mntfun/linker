@@ -18,10 +18,18 @@
 ![image](https://raw.githubusercontent.com/mntfun/linker/master/linker-doc/weibo-business-modulev1.0.png)
 
 ## 三. 第一版系统架构图
-![image](https://raw.githubusercontent.com/mntfun/linker/master/linker-doc/weibo/weibo-sys-v1.0.jpeg)
+![image](https://raw.githubusercontent.com/mntfun/linker/master/linker-doc/weibo-sys-v1.0.jpeg)
 
 ## 四. 项目命名/结构/规范……
+1. 项目名：linker
+2. 结构：
+    * linker-common: 公共模块，提供基础组件定义、操作工具类等
+    * linker-service: 服务模块，提供各模块业务处理
+    * linker-api: 接口模块，向外暴露 http restful 接口
+3. 规范：参照 [Alibaba-Java-Coding-Guidelines](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/) 
 
 ## 五. DB设计
+[linker.db](https://github.com/mntfun/linker/blob/master/linker-doc/linker.svg)
 
 ## 六. API设计
+> TODO
