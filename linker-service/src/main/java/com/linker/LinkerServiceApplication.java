@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * Created by dentalulcer on 05/07/2018.
  */
 @ServletComponentScan
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.linker.service.impl"})
 @EnableTransactionManagement
 @MapperScan("com.linker.dao")
 public class LinkerServiceApplication {
