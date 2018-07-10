@@ -19,7 +19,6 @@ public class LinkerServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LinkerServiceApplication.class, args);
-
     }
 
 }
