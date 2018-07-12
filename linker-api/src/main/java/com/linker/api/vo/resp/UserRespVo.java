@@ -7,7 +7,7 @@ import com.linker.model.User;
  */
 public class UserRespVo {
 
-    private Integer id;
+    private String id;
     private String username;
 
     public UserRespVo () {}
@@ -17,11 +17,11 @@ public class UserRespVo {
         this.username = user.getUsername();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

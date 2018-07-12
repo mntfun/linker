@@ -21,7 +21,7 @@ public class UserQueryServiceImpl implements UserQueryService {
     private UserMapper userMapper;
 
     @Override
-    public User getOneById(Integer uId) {
+    public User getOneById(String uId) {
         return userMapper.selectByPrimaryKey(uId);
     }
 

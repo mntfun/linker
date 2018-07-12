@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
@@ -25,7 +26,8 @@ public class UserTest {
     @Test
     public void userInsertTest() {
         User user = new User();
-        user.setUsername("tom3");
+        user.setId(UUID.randomUUID().toString().replaceAll("-",""));
+        user.setUsername("tom4");
         user.setGender(true);
         user.setPassword("xxsxfsdf");
         user.setEmail("ccc");
@@ -38,7 +40,6 @@ public class UserTest {
     @Test
     public void userUpdateTest() {
         User user = new User();
-        user.setId(1);
         user.setUsername("tom2");
         user.setGender(true);
         user.setPassword("xxsx");

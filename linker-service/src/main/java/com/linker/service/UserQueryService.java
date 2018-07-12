@@ -18,7 +18,7 @@ public interface UserQueryService {
      * @param uId
      * @return
      */
-    User getOneById(Integer uId);
+    User getOneById(String uId);
 
     /**
      * 根据条件查询用户列表

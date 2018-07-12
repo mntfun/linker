@@ -22,7 +22,7 @@ public class UserController {
     private UserQueryService userQueryService;
 
     @GetMapping("{uId}")
-    public RespData<UserRespVo> publicInfo(@PathVariable Integer uId) {
+    public RespData<UserRespVo> publicInfo(@PathVariable String uId) {
 
         // TODO validate
 
