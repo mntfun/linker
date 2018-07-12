@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linker.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.linker.model.Comment">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="comments_content" jdbcType="VARCHAR" property="commentsContent" />
+    <result column="comments_status" jdbcType="BIT" property="commentsStatus" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="parent_comment_id" jdbcType="VARCHAR" property="parentCommentId" />
+    <result column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="comment_likenum" jdbcType="INTEGER" property="commentLikenum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, comments_content, comments_status, created_at, parent_comment_id, post_id, user_id, 
+    img_url, comment_likenum
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from linker_comments
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from linker_comments
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.linker.model.Comment">
+    insert into linker_comments (id, comments_content, comments_status, 
+      created_at, parent_comment_id, post_id, 
+      user_id, img_url, comment_likenum
+      )
+    values (#{id,jdbcType=VARCHAR}, #{commentsContent,jdbcType=VARCHAR}, #{commentsStatus,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{parentCommentId,jdbcType=VARCHAR}, #{postId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{imgUrl,jdbcType=VARCHAR}, #{commentLikenum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.linker.model.Comment">
+    insert into linker_comments
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="commentsContent != null">
+        comments_content,
+      </if>
+      <if test="commentsStatus != null">
+        comments_status,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="parentCommentId != null">
+        parent_comment_id,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="imgUrl != null">
+        img_url,
+      </if>
+      <if test="commentLikenum != null">
+        comment_likenum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="commentsContent != null">
+        #{commentsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentsStatus != null">
+        #{commentsStatus,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentCommentId != null">
+        #{parentCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="imgUrl != null">
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="commentLikenum != null">
+        #{commentLikenum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linker.model.Comment">
+    update linker_comments
+    <set>
+      <if test="commentsContent != null">
+        comments_content = #{commentsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentsStatus != null">
+        comments_status = #{commentsStatus,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentCommentId != null">
+        parent_comment_id = #{parentCommentId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="imgUrl != null">
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="commentLikenum != null">
+        comment_likenum = #{commentLikenum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linker.model.Comment">
+    update linker_comments
+    set comments_content = #{commentsContent,jdbcType=VARCHAR},
+      comments_status = #{commentsStatus,jdbcType=BIT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      parent_comment_id = #{parentCommentId,jdbcType=VARCHAR},
+      post_id = #{postId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      comment_likenum = #{commentLikenum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

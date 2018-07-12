@@ -1,5 +1,6 @@
 package com.linker.service.impl;
 
+import com.linker.common.utils.LinkerGenerator;
 import com.linker.dao.UserMapper;
 import com.linker.model.User;
 import com.linker.service.UserOpService;
@@ -25,7 +26,7 @@ public class UserOpServiceImpl implements UserOpService {
 
     @Override
     public int saveUserInfo(User user) {
-
+        user.setId(LinkerGenerator.generateUUID());
         return userMapper.insertSelective(user);
     }
 
